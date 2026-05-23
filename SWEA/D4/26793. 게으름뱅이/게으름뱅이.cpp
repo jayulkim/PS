@@ -1214,15 +1214,16 @@ int main(void) {
 	cin >> num;
 	while (num--) {
 		cin >> n;
-		map<ll, ll>Map;
+		vector<pll>v;
 		for (int i = 0; i < n; i++) {
 			ll a = 0, b = 0;
 			cin >> a >> b;
-			Map[b] += a;
+			v.push_back({ b, a });
 		}
+		sort(all(v));
 		ll Min = LLONG_MAX;
 		ll temp = 0;
-		for (auto& [a, b] : Map) {
+		for (auto& [a, b] : v) {
 			temp += b;
 			Min = min(Min, a - temp);
 		}
